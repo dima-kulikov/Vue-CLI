@@ -1,57 +1,32 @@
 <template>
-  <div id="app">
-    <h1>{{firstName}}</h1>
-    <h2>{{desc}}</h2>
-    <p>Автомобиль {{obj.car}} имеет скорость: {{obj.speed}} км/час и цвет: {{obj.color}}</p>
-    <a v-bind:href="hub" target="_blank">ссылка</a>
-    <br>
-    <br>
-    <a :[atterkey]="hub">ссылка 2</a>
-    <br>
-    <br>
-    <div class="block">
-    <button class="menu-btn" v-on:click="msgVisibl = 1">Button - 1</button>
-    <button class="menu-btn" v-on:click="msgVisibl = 2">Button - 2</button>
-    <button class="menu-btn" v-on:click="msgVisibl = 3">Button - 3</button>
-    <div class="message" v-if="msgVisibl == 1">Выводим первый текст</div>
-    <div class="message" v-else-if="msgVisibl == 2">Второй текст на экране</div>
-    <div class="message" v-else>Третий и последний текст</div>
-    </div>
-    <div class="block">
-      <div v-if="inputNameVizibl">
-        <label> Name </label>
-        <input type="text" placeholder="Введите свое имя" key="nameInput">
-      </div>
-      <div v-else>
-        <label>Nikname </label>
-        <input type="text" placeholder="Введите Никнейм" key="NiknameInput">
-      </div>
-      <button v-on:click ="inputNameVizibl = !inputNameVizibl">Изменить поле формы</button>
-    </div>
+  <div id="app" >
+    <button @click.right="onClick('fun value', $event)"> click button right</button>
+    <a href @click.prevent="linkClick">link</a>
+    <h3 v-bind:class="text">{{ text }}</h3>
+    <input type="text" @keyup.enter="eventOnKey" />
+    <div style="margin-top:20px;">пропиши цвет из списка: red, green, black, orange</div>
   </div>
 </template>
-
 <script>
 // import HelloWorld from './components/HelloWorld.vue';
 
 export default {
-  name: 'App',
-  // components: {
-  //   HelloWorld,
-  // },
+  name: 'app',
   data: () => ({
-    firstName: 'Dima',
-    desc: 'работоспособность VUE',
-    hub: 'https://github.com/',
-    atterkey: 'href',
-    obj: {
-      car: 'BMW',
-      speed: '220',
-      color: 'black',
-    },
-    msgVisibl: 2,
-    inputNameVizibl: true,
+    text: '',
   }),
+  methods: {
+    onClick(vel, e) {
+      console.log(vel, e);
+    },
+    linkClick() {
+      console.log('linkkk');
+    },
+    eventOnKey(e) {
+      console.log(e);
+      this.text = e.target.value;
+    },
+  },
 };
 </script>
 
@@ -82,4 +57,17 @@ button{
   margin: 15px;
   cursor: pointer;
 }
+.red{
+background-color: red;
+}
+.green{
+background-color: green;
+}
+.black{
+background-color: black;
+}
+.orange{
+background-color: orange;
+}
+
 </style>
