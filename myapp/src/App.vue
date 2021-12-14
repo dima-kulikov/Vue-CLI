@@ -4,7 +4,11 @@
     <a href @click.prevent="linkClick">link</a>
     <h3 v-bind:class="text">{{ text }}</h3>
     <input type="text" @keyup.enter="eventOnKey" />
-    <div style="margin-top:20px;">пропиши цвет из списка: red, green, black, orange</div>
+    <div style="margin-top:20px;">пропиши цвет из списка: </div>
+    <ul class="list">
+      <li v-for="(color, index) in colors" :key="index">{{index +1}} {{ color}}</li>
+    </ul>
+
   </div>
 </template>
 <script>
@@ -14,6 +18,7 @@ export default {
   name: 'app',
   data: () => ({
     text: '',
+    colors: ['red', 'green', 'black', 'orange', 'yellow'],
   }),
   methods: {
     onClick(vel, e) {
@@ -57,6 +62,12 @@ button{
   margin: 15px;
   cursor: pointer;
 }
+.list{
+  text-align: start;
+  border: 1px solid black;
+  width: 30%;
+  margin: 20px auto;
+}
 .red{
 background-color: red;
 }
@@ -68,6 +79,9 @@ background-color: black;
 }
 .orange{
 background-color: orange;
+}
+.yellow{
+  background-color: yellow;
 }
 
 </style>
