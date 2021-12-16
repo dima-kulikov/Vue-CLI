@@ -1,14 +1,5 @@
 <template>
   <div id="app" >
-    <button @click.right="onClick('fun value', $event)"> click button right</button>
-    <a href @click.prevent="linkClick">link</a>
-    <h3 v-bind:class="text">{{ text }}</h3>
-    <input type="text" @keyup.enter="eventOnKey" />
-    <div style="margin-top:20px;">пропиши цвет из списка: </div>
-    <ul class="list">
-      <li v-for="(color, index) in colors" :key="index">{{index +1}} {{ color}}</li>
-    </ul>
-
   </div>
 </template>
 <script>
@@ -17,21 +8,8 @@
 export default {
   name: 'app',
   data: () => ({
-    text: '',
-    colors: ['red', 'green', 'black', 'orange', 'yellow'],
+
   }),
-  methods: {
-    onClick(vel, e) {
-      console.log(vel, e);
-    },
-    linkClick() {
-      console.log('linkkk');
-    },
-    eventOnKey(e) {
-      console.log(e);
-      this.text = e.target.value;
-    },
-  },
 };
 </script>
 
@@ -61,27 +39,6 @@ export default {
 button{
   margin: 15px;
   cursor: pointer;
-}
-.list{
-  text-align: start;
-  border: 1px solid black;
-  width: 30%;
-  margin: 20px auto;
-}
-.red{
-background-color: red;
-}
-.green{
-background-color: green;
-}
-.black{
-background-color: black;
-}
-.orange{
-background-color: orange;
-}
-.yellow{
-  background-color: yellow;
 }
 
 </style>
