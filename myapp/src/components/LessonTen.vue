@@ -2,7 +2,7 @@
     <div class="info-block active-lesson">
       <div>Введите Ваши данные:</div>
         <h3>{{nameVizible}}</h3>
-        <input type="text">
+        <input type="text" @keyup.enter="upName">
     </div>
 </template>
 
@@ -20,6 +20,11 @@ export default {
   computed: {
     nameVizible() {
       return `${this.firstName || 'first name'}, ${this.lastName || 'last name'}`;
+    },
+  },
+  methods: {
+    upName(e) {
+      this.firstName = e.target.value;
     },
   },
 };
