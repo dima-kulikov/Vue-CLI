@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{'--background': dark}">
     <h1>{{firstName}}</h1>
     <h2>{{desc}}</h2>
     <p>Автомобиль {{obj.car}} имеет скорость: {{obj.speed}} км/час и цвет: {{obj.color}}</p>
@@ -35,19 +35,27 @@
 
 export default {
   name: 'HelloWorld',
-  data: () => ({
-    firstName: 'Dima',
-    desc: 'работоспособность VUE',
-    hub: 'https://github.com/',
-    atterkey: 'href',
-    obj: {
-      car: 'BMW',
-      speed: '220',
-      color: 'black',
-    },
-    msgVisibl: 2,
-    inputNameVizibl: true,
-  }),
+  data() {
+    return {
+      firstName: 'Dima',
+      desc: 'работоспособность VUE',
+      hub: 'https://github.com/',
+      atterkey: 'href',
+      obj: {
+        car: 'BMW',
+        speed: '220',
+        color: 'black',
+      },
+      msgVisibl: 2,
+      inputNameVizibl: true,
+    }
+  },
+  props: {
+    dark: {
+      type: Boolean,
+      default: false
+    }
+  }
 };
 </script>
 
@@ -77,5 +85,9 @@ export default {
 button{
   margin: 15px;
   cursor: pointer;
+}
+
+.--background {
+  background: black;
 }
 </style>
