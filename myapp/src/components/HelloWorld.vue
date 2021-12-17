@@ -1,58 +1,81 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div>
+    <h1>{{firstName}}</h1>
+    <h2>{{desc}}</h2>
+    <p>Автомобиль {{obj.car}} имеет скорость: {{obj.speed}} км/час и цвет: {{obj.color}}</p>
+    <a v-bind:href="hub" target="_blank">ссылка</a>
+    <br>
+    <br>
+    <a :[atterkey]="hub">ссылка 2</a>
+    <br>
+    <br>
+    <div class="block">
+    <button class="menu-btn" v-on:click="msgVisibl = 1">Button - 1</button>
+    <button class="menu-btn" v-on:click="msgVisibl = 2">Button - 2</button>
+    <button class="menu-btn" v-on:click="msgVisibl = 3">Button - 3</button>
+    <div class="message" v-if="msgVisibl == 1">Выводим первый текст</div>
+    <div class="message" v-else-if="msgVisibl == 2">Второй текст на экране</div>
+    <div class="message" v-else>Третий и последний текст</div>
+    </div>
+    <div class="block">
+      <div v-if="inputNameVizibl">
+        <label> Name </label>
+        <input type="text" placeholder="Введите свое имя" key="nameInput">
+      </div>
+      <div v-else>
+        <label>Nikname </label>
+        <input type="text" placeholder="Введите Никнейм" key="NiknameInput">
+      </div>
+      <button v-on:click ="inputNameVizibl = !inputNameVizibl">Изменить поле формы</button>
+    </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String,
-  },
+  data: () => ({
+    firstName: 'Dima',
+    desc: 'работоспособность VUE',
+    hub: 'https://github.com/',
+    atterkey: 'href',
+    obj: {
+      car: 'BMW',
+      speed: '220',
+      color: 'black',
+    },
+    msgVisibl: 2,
+    inputNameVizibl: true,
+  }),
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.block{
+  outline: 2px solid rosybrown;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 10px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.menu-btn{
+  width: 30%;
+  margin: 5px;
+  padding: 5px 0;
 }
-a {
-  color: #42b983;
+.message{
+  padding: 15px 0;
+}
+button{
+  margin: 15px;
+  cursor: pointer;
 }
 </style>
