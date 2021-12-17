@@ -48,14 +48,14 @@ export default {
       },
       msgVisibl: 2,
       inputNameVizibl: true,
-    }
+    };
   },
   props: {
     dark: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 
