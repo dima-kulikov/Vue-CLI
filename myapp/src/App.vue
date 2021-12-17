@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+
+    <lesson-ten></lesson-ten>
+ <div class="info-block">
     <button @click.right="onClick('fun value', $event)"> click button right</button>
     <a href @click.prevent="linkClick">link</a>
     <h3 v-bind:class="text">{{ text }}</h3>
@@ -10,13 +13,17 @@
     </ul>
     <div>Внести новый цвет в массив цветов</div>
     <input type="text" @keyup.enter="addNewColor" />
+ </div>
+    <div class="info-block">
     <hello-world></hello-world>
     <hello-world dark></hello-world>
+    </div>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
+import LessonTen from './components/LessonTen.vue';
 
 export default {
   name: 'app',
@@ -26,6 +33,7 @@ export default {
   }),
   components: {
     HelloWorld,
+    LessonTen,
   },
   methods: {
     onClick(vel, e) {
