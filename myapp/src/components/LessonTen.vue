@@ -3,6 +3,7 @@
       <div>Введите Ваши данные:</div>
         <h3>{{nameVizible}}</h3>
         <input type="text" @keyup.enter="upName">
+        <input type="text" @keyup.enter="upName">
     </div>
 </template>
 
@@ -26,6 +27,9 @@ export default {
     upName(e) {
       this.firstName = e.target.value;
     },
+    //  upSecond(e) {
+    //   this.firstName = e.target.value;
+    // },
   },
 };
 
