@@ -1,9 +1,9 @@
 <template>
     <div class="info-block active-lesson">
       <div>Введите Ваши данные:</div>
-        <h3>{{nameVizible}}</h3>
-        <input type="text" @keyup.enter="upName">
-        <input type="text" @keyup.enter="upName">
+        <h3>{{fullName}}</h3>
+        <input type="text" @keyup.enter="setName">
+        <input type="text" @keyup.enter="upSecond">
     </div>
 </template>
 
@@ -19,16 +19,25 @@ export default {
     };
   },
   computed: {
-    nameVizible() {
-      return `${this.firstName || 'first name'}, ${this.lastName || 'last name'}`;
+    fullName: {
+      get() {
+        return `${this.firstName || 'first name'}, ${this.lastName || 'last name'}`;
+      },
+      set(value) {
+        console.log(value);
+      },
     },
   },
   methods: {
-    upName(e) {
-      this.firstName = e.target.value;
+    setName(e) {
+      // this.firstName = e.target.value;
+      this.fullName = e.targer.value;
     },
-    //  upSecond(e) {
-    //   this.firstName = e.target.value;
+    upSecond(e) {
+      this.lastName = e.target.value;
+    },
+    // setName(e) {
+    //   this.fullName = e.targer.value;
     // },
   },
 };
