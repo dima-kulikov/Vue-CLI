@@ -1,6 +1,7 @@
 <template>
   <div id="app">
 
+    <lesson-eleven></lesson-eleven>
     <lesson-ten></lesson-ten>
  <div class="info-block">
     <button @click.right="onClick('fun value', $event)"> click button right</button>
@@ -24,6 +25,8 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue';
 import LessonTen from './components/LessonTen.vue';
+// import LessonEleven from './components/LessonEleven.vue';
+import LessonEleven from './components/LessonEleven.vue';
 
 export default {
   name: 'app',
@@ -34,6 +37,7 @@ export default {
   components: {
     HelloWorld,
     LessonTen,
+    LessonEleven,
   },
   methods: {
     onClick(vel, e) {

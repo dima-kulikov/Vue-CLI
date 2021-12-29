@@ -1,5 +1,5 @@
 <template>
-    <div class="info-block active-lesson">
+    <div class="info-block">
       <div>Введите Ваши данные:</div>
         <h3>{{fullName}}</h3>
         <input type="text" @keyup.enter="setName">
@@ -30,8 +30,8 @@ export default {
   },
   methods: {
     setName(e) {
-      // this.firstName = e.target.value;
-      this.fullName = e.targer.value;
+      this.firstName = e.target.value;
+      // this.fullName = e.targer.value;
     },
     upSecond(e) {
       this.lastName = e.target.value;
