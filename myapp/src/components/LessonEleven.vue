@@ -1,18 +1,20 @@
 <template>
   <div class="info-block active-lesson">
-      <div>{{pageName}}</div>
+     <button @click="onClick"> Send event</button>
     </div>
 </template>
 
 <script>
 export default {
   name: 'LessonEleven',
-  data() {
-    return {
-      pageName: 'Lesson - 12',
-      firstName: '',
-      lastName: '',
-    };
+  data: () => ({
+    counter: 0,
+  }),
+  methods: {
+    onClick() {
+      this.counter += 1;
+      this.$emit('onChangeCounter', this.counter);
+    },
   },
 };
 </script>

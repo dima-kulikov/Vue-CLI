@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <lesson-eleven></lesson-eleven>
+    <lesson-eleven @onChangeCounter="onChangeCounterInComponent" />
     <lesson-ten></lesson-ten>
  <div class="info-block">
     <button @click.right="onClick('fun value', $event)"> click button right</button>
@@ -52,6 +52,9 @@ export default {
     },
     addNewColor(e) {
       this.colors.push(e.target.value);
+    },
+    onChangeCounterInComponent(value) {
+      console.log('click button:', value * 2);
     },
   },
 };
