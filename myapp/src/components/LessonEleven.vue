@@ -1,5 +1,6 @@
 <template>
   <div class="info-block active-lesson">
+    <h1>{{title}}</h1>
      <button @click="onClick"> Send event</button>
     </div>
 </template>
@@ -7,6 +8,9 @@
 <script>
 export default {
   name: 'LessonEleven',
+  props: {
+    title: [String, Number],
+  },
   data: () => ({
     counter: 0,
   }),

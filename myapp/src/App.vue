@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <lesson-eleven @onChangeCounter="onChangeCounterInComponent" />
+    <lesson-eleven :title="title" @onChangeCounter="onChangeCounterInComponent" />
     <lesson-ten></lesson-ten>
  <div class="info-block">
     <button @click.right="onClick('fun value', $event)"> click button right</button>
@@ -25,7 +25,6 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue';
 import LessonTen from './components/LessonTen.vue';
-// import LessonEleven from './components/LessonEleven.vue';
 import LessonEleven from './components/LessonEleven.vue';
 
 export default {
@@ -33,6 +32,7 @@ export default {
   data: () => ({
     text: '',
     colors: ['red', 'green', 'black', 'orange', 'yellow'],
+    title: ' title props',
   }),
   components: {
     HelloWorld,
