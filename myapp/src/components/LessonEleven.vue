@@ -1,6 +1,7 @@
 <template>
   <div class="info-block active-lesson">
-    <h1>{{title}}</h1>
+    <h1>{{titleA}}</h1>
+    <h2>{{userObject}}</h2>
      <button @click="onClick"> Send event</button>
     </div>
 </template>
@@ -9,7 +10,19 @@
 export default {
   name: 'LessonEleven',
   props: {
-    title: [String, Number],
+    titleA: {
+      type: String,
+      default: 'not vorck',
+      // required: true,
+    },
+    userObject: {
+      type: Object,
+      // default: true,
+      validator(value) {
+        console.log(value);
+        return value.name;
+      },
+    },
   },
   data: () => ({
     counter: 0,

@@ -1,7 +1,8 @@
 <template>
   <div id="app">
 
-    <lesson-eleven :title="title" @onChangeCounter="onChangeCounterInComponent" />
+    <lesson-eleven :user-object="user"
+     :titleA="titleA" @onChangeCounter="onChangeCounterInComponent"/>
     <lesson-ten></lesson-ten>
  <div class="info-block">
     <button @click.right="onClick('fun value', $event)"> click button right</button>
@@ -32,7 +33,11 @@ export default {
   data: () => ({
     text: '',
     colors: ['red', 'green', 'black', 'orange', 'yellow'],
-    title: ' title props',
+    titleA: ' title props',
+    user: {
+      name: 'Dima',
+      age: 34,
+    },
   }),
   components: {
     HelloWorld,
