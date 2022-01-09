@@ -1,5 +1,5 @@
 <template>
-  <div class="info-block active-lesson">
+  <div class="info-block ">
     <h1>{{titleA}}</h1>
     <h2>{{userObject}}</h2>
      <button @click="onClick"> Send event</button>

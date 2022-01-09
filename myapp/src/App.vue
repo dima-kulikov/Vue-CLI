@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-
+    <lesson-fourteen></lesson-fourteen>
     <lesson-eleven :user-object="user"
      :titleA="titleA" @onChangeCounter="onChangeCounterInComponent"/>
     <lesson-ten></lesson-ten>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import LessonFourteen from './components/LessonFourteen.vue';
 import HelloWorld from './components/HelloWorld.vue';
 import LessonTen from './components/LessonTen.vue';
 import LessonEleven from './components/LessonEleven.vue';
@@ -43,6 +44,7 @@ export default {
     HelloWorld,
     LessonTen,
     LessonEleven,
+    LessonFourteen,
   },
   methods: {
     onClick(vel, e) {
