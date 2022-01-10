@@ -1,7 +1,7 @@
 <template>
   <div class="info-block active-lesson">
    <p>{{namePage}}</p>
-   <input type="text" v-model="text">
+   <input type="text" v-model="textComputed">
    <h3>Input text value:
        <i>{{text}}</i>
    </h3>
@@ -18,7 +18,13 @@
         <input type="checkbox" v-model="checkboxArray" value="four">
         <p>value in checkbox Array: <i>{{checkboxArray}}</i></p>
     </div>
-    </div>
+    <select v-model="select">
+      <option value="bmw">BMW</option>
+      <option value="volvo">Volvo</option>
+      <option value="audi">Audi</option>
+    </select>
+      <p>value in select: <i>{{select}}</i></p>
+</div>
 </template>
 
 <script>
@@ -29,7 +35,18 @@ export default {
     text: '',
     checkbox: false,
     checkboxArray: [],
+    select: '',
   }),
+  computed: {
+    textComputed: {
+      get() {
+        return this.text;
+      },
+      set(value) {
+        this.text = value;
+      },
+    },
+  },
 };
 </script>
 
